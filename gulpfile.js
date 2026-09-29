@@ -4,6 +4,7 @@ const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
 const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
+const imagemin = require('gulp-imagemin');
 
     function HTML() {
         return gulp.src('src/*.html')
@@ -28,26 +29,40 @@ function scripts() {
         .pipe(gulp.dest('dist/js'));
 }
 
-async function images() {
-    const imagemin = (await import('gulp-imagemin')).default;
-    return gulp.src('src/imgs/**/*')
-        .pipe(imagemin())
+function images() {
+    return gulp.src('src/imgs/**/*',{ encoding: false })
         .pipe(gulp.dest('dist/imgs'));
+}
+
+function reload(done) {
+    browserSync.reload();
+    done();
 }
 
 function watchFiles() {
     browserSync.init({
-        server: { baseDir: './dist' }
+        server: {
+            baseDir: './dist'
+        }
     });
 
-    gulp.watch('src/*.html', HTML).on('change', browserSync.reload);
-    gulp.watch('src/scss/**/*.scss', buildStyles).on('change', browserSync.reload);
-    gulp.watch('src/js/**/*.js', scripts).on('change', browserSync.reload);
-    gulp.watch('src/imgs/**/*', images).on('change', browserSync.reload);
+    gulp.watch('src/*.html', gulp.series(HTML, reload));
+    gulp.watch('src/scss/**/*.scss', gulp.series(buildStyles, reload));
+    gulp.watch('src/js/**/*.js', gulp.series(scripts, reload));
+    gulp.watch('src/imgs/**/*', gulp.series(images, reload));
+}
+
+function bootstrapCss() {
+    return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(gulp.dest('dist/css'));
+}
+
+function bootstrapJs() {
+    return gulp.src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+        .pipe(gulp.dest('dist/js'));
 }
 
 exports.default = gulp.series(
-    gulp.parallel(HTML, buildStyles, scripts, images),
+    gulp.parallel(HTML, buildStyles, scripts, images, bootstrapCss, bootstrapJs),
     watchFiles
 );
-
