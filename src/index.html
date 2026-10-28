@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>
-    hello!
-</h1>
-<img src="imgs/cat.png" alt="cat">
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            @@include('./components/sidebar.html')
+        </div>
+
+        <div class="col-7">
+            @@include('./components/content.html')
+        </div>
+    </div>
+</div>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
+<!--додати правило ремув
+блоки -->

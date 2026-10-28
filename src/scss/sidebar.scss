@@ -1,0 +1,237 @@
+@mixin flex-colum {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin raleway-extrabold {
+  font-family: "Raleway";
+  font-weight: 800;
+}
+
+@mixin raleway-regular {
+  font-family: "Raleway";
+  font-weight: 400;
+}
+
+.header {
+  @include flex-colum;
+  background-color: $color-dark;
+  color: $color-white;
+  text-align: center;
+  gap: 10px;
+  padding-top: 118px;
+  padding-bottom: 0;
+  border-radius: 0 0 500px 500px;
+  &-wrapper {
+    text-align: center;
+  }
+
+  &-name {
+    font-size: 55px;
+    font-weight: 900;
+    font-family: "Raleway";
+    margin: 0;
+  }
+
+  &-job {
+    font-size: 24px;
+  }
+
+  &-circle {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    margin: 0;
+
+  }
+
+  &-avatar {
+    $border-width: 15px;
+    $base-padding: 5px;
+    $offset: $base-padding * 3 + 10px;
+
+    background-color: #aaa;
+    border: $border-width solid $color-white;
+    border-radius: 50%;
+    position: absolute;
+    top: $offset;
+    bottom: $offset;
+    left: $offset;
+    right: $offset;
+  }
+}
+
+.sidebar {
+  background-color: $color-light;
+  height: 100%;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+
+  h2 {
+    @include raleway-extrabold;
+    font-size: 35px;
+  }
+}
+
+%details-style {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  img {
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+  }
+
+  h3 {
+    font-size: 19px;
+    margin: 0;
+  }
+}
+
+.number {
+  @extend %details-style;
+}
+
+.link {
+  @extend %details-style;
+}
+
+.location {
+  @extend %details-style;
+}
+
+.contact-details {
+  @include flex-colum;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contact {
+  color: $color-dark;
+  @include flex-colum;
+  gap: 26px;
+
+}
+
+@mixin align-sidebar-content {
+  padding-top: 39px;
+  padding-left: 75px;
+  padding-rigth: 75px;
+}
+
+.contact {
+  @include align-sidebar-content;
+}
+
+.footer-circle {
+  background-color: $color-dark;
+  color: $color-light;
+  margin: 40px 25px 0 25px;
+  padding: 117px 85px 117px 85px;
+  border-radius: 250px 250px 0 0;
+  @include flex-colum;
+  gap: 50px;
+}
+
+.education {
+  @include flex-colum;
+  gap: 25px;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+
+    h2 {
+      @include raleway-extrabold;
+      font-size: 35px;
+      margin: 0;
+    }
+  }
+
+  &-content {
+    @include flex-colum;
+    gap: 30px;
+  }
+}
+
+.university {
+  h2 {
+    font-size: 23px;
+    @include raleway-extrabold;
+  }
+
+  h3 {
+    font-size: 20px;
+    @include raleway-regular;
+  }
+}
+
+.references {
+  @include flex-colum;
+  gap: 30px;
+
+  &-header {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    h2 {
+      @include raleway-extrabold;
+      font-size: 35px;
+      margin: 0;
+
+    }
+  }
+
+  &-content {
+    @include flex-colum;
+    gap: 30px;
+  }
+}
+
+.reference {
+  @include flex-colum;
+  gap: 20px;
+
+  h2 {
+    @include raleway-extrabold;
+    font-size: 23px;
+    margin: 0;
+  }
+
+  h3 {
+    @include raleway-regular;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &-details {
+    @include flex-colum;
+    gap: 7px;
+  }
+}
+

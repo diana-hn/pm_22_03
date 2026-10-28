@@ -1,0 +1,240 @@
+@mixin flex-colum {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin raleway-extrabold {
+  font-family: "Raleway";
+  font-weight: 800;
+}
+
+@mixin raleway-regular {
+  font-family: "Raleway";
+  font-weight: 400;
+}
+
+.main-content {
+  padding: 130px 90px 144px 90px;
+  margin: 0;
+  @include flex-colum;
+  gap: 100px;
+  color: $color-dark;
+}
+
+.about {
+  @include flex-colum;
+  gap: 30px;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+
+    h2 {
+      @include raleway-extrabold;
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    line-height: 33px;
+    text-align: justify;
+    font-size: 20px;
+  }
+}
+
+.job-tittle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-size: 23px;
+    margin: 0;
+    @include raleway-extrabold;
+  }
+
+  span {
+    font-size: 20px;
+    font-family: Raleway;
+    font-weight: 600;
+  }
+}
+
+.job-header {
+  @include flex-colum;
+  gap: 3px;
+
+  p {
+    margin: 0;
+    font-family: "Raleway";
+    font-weight: 200;
+    font-size: 20px;
+  }
+}
+
+.job-item {
+  @include flex-colum;
+  gap: 20px;
+
+  p {
+    margin: 0;
+    font-size: 20px;
+    text-align: justify;
+    font-weight: 400;
+    font-family: "Raleway";
+  }
+}
+
+.job-container {
+  @include flex-colum;
+  gap: 50px;
+}
+
+.experience {
+  @include flex-colum;
+  gap: 40px;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+
+    h2 {
+      @include raleway-extrabold;
+      font-size: 35px;
+      margin: 0;
+    }
+  }
+}
+
+.skills {
+  @include flex-colum;
+  gap: 50px;
+
+  &-header {
+    display: flex;
+    gap: 17px;
+
+    h2 {
+      @include raleway-extrabold;
+      font-size: 35px;
+      margin: 0;
+    }
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+
+  }
+
+  &-columns {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+.skill-bar {
+  display: grid;
+  grid-template-columns: 160px auto;
+  align-items: center;
+
+  span {
+    font-size: 15px;
+    font-family: "Raleway";
+    font-weight: 700;
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
+    //width: 100px;
+    height: 8px;
+  }
+}
+
+.column {
+  @include flex-colum;
+  gap: 20px;
+}
+
+.skills-columns {
+  display: flex;
+  gap: 35px;
+}
+
+.info-header {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  padding-bottom: 30px;
+
+  h2 {
+    margin: 0;
+    @include raleway-extrabold;
+    font-size: 35px;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.info-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+
+  li {
+    font-family: "Raleway";
+    font-weight: 700;
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 9px;
+      height: 9px;
+      background-color: $color-dark;
+      border-radius: 50%;
+    }
+  }
+
+  &.two-columns {
+    display: grid;
+    grid-template-columns: 110px 110px;
+    row-gap: 10px;
+    column-gap: 15px;
+  }
+}
+
+.second-column{
+  @include flex-colum;
+  gap: 10px;
+}
+
+.additional-info {
+  display: flex;
+  gap: 60px;
+}
+
+

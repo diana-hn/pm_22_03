@@ -1,8 +1,10 @@
+$color-dark: #333333;
+$color-light: #f0f0f0;
+$color-white: #ffffff;
+@import 'font.scss';
+@import 'sidebar.scss';
+@import 'content.scss';
 body {
-  background-color: mediumvioletred;
+  font-family: "Raleway";
 }
 
-img {
-  height: 100px;
-  width: 100px;
-}
